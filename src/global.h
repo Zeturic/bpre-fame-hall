@@ -18,3 +18,7 @@
 #define tFrameCount         data[3]
 #define tPlayerSpriteID     data[4]
 #define tMonSpriteId(i)     data[i + 5]
+
+#define tDestinationX  data[1]
+#define tDestinationY  data[2]
+#define tSpecies       data[7]

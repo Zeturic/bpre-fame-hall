@@ -10,3 +10,10 @@
 .definelabel CreateTask, 0x0807741C
 .definelabel Task_Hof_InitMonData, 0x080F1F74
 .definelabel AllocZeroed, 0x08002BB0
+.definelabel CreatePicSprite2, 0x0810C1CC
+.definelabel SpriteCB_GetOnScreenAndAnimate, 0x080F3870
+.definelabel DeleteWindow, 0x080F6F54
+// .definelabel Task_Hof_PrintMonInfoAfterAnimating, 0x080F23A0
+.definelabel HallOfFame_PrintMonInfo, 0x080F3194
+.definelabel Task_Hof_TryDisplayAnotherMon, 0x080F2424
+.definelabel PlayCry1, 0x08071DF0

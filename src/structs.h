@@ -6,8 +6,8 @@
 struct packed HallofFameMon {
     u32 tid;
     u32 personality;
-    u16 species:9;
-    u16 lvl:7;
+    u16 species : 9;
+    u16 lvl : 7;
     u8 nick[POKEMON_NAME_LENGTH];
 };
 
@@ -24,6 +24,16 @@ struct packed Task {
     s16 data[16];
 };
 
+struct packed Sprite {
+    u8 filler_0[0x1C];
+    void (*callback)(struct Sprite *);
+    u8 filler_20[0xE];
+    // general purpose data fields
+    s16 data[8];
+    u8 filler_3E[0x6];
+};
+
 struct TextPrinterTemplate;
 
 // _Static_assert(sizeof(struct Task) == 0x28, "");
+// _Static_assert(sizeof(struct Sprite) == 0x44, "");
