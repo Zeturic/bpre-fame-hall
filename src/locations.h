@@ -3,6 +3,9 @@
 #include "structs.h"
 
 extern const u8 gText_SavingDontTurnOffPower[];
+extern const u8 gText_HOFNumber[];
+extern const u8 gText_PickCancel[];
+extern const u8 gText_PickNextCancel[];
 
 extern u8 gDecompressionBuffer[];
 extern bool8 gHasHallOfFameRecords;
@@ -17,3 +20,6 @@ extern const s16 sHallOfFame_MonHalfTeamPositions[3][4];
 extern struct Sprite gSprites[];
 
 extern u32 sHofFadingRelated;
+
+extern u8 gStringVar1[];
+extern u8 gStringVar4[];

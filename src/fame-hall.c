@@ -135,3 +135,60 @@ void Task_HofPC_CopySaveData(u8 taskId) {
         gTasks[taskId].func = Task_HofPC_DrawSpritesPrintText;
     }
 }
+
+void Task_HofPC_DrawSpritesPrintText(u8 taskId) {
+    struct HallofFameTeam *savedTeams = sHofMonPtr;
+    struct HallofFameMon *currMon;
+    u16 i;
+
+    for (i = 0; i < gTasks[taskId].tCurrTeamNo; i++)
+        savedTeams++;
+
+    currMon = &savedTeams->mon[0];
+    sHofFadingRelated = 0;
+    gTasks[taskId].tCurrMonId = 0;
+    gTasks[taskId].tMonNo = 0;
+
+    for (i = 0; i < PARTY_SIZE; i++, currMon++) {
+        if (currMon->species != 0)
+            gTasks[taskId].tMonNo++;
+    }
+
+    currMon = &savedTeams->mon[0];
+
+    for (i = 0; i < PARTY_SIZE; i++, currMon++) {
+        if (currMon->species != 0) {
+            u16 spriteId;
+            s16 posX, posY;
+
+            if (gTasks[taskId].tMonNo > 3) {
+                posX = sHallOfFame_MonFullTeamPositions[i][2];
+                posY = sHallOfFame_MonFullTeamPositions[i][3];
+            } else {
+                posX = sHallOfFame_MonHalfTeamPositions[i][2];
+                posY = sHallOfFame_MonHalfTeamPositions[i][3];
+            }
+
+            if (currMon->species == SPECIES_EGG)
+                posY += 10;
+
+            spriteId = CreatePicSprite2(currMon->species, currMon->tid, currMon->personality, 1, posX, posY, i, 0xFFFF);
+            gSprites[spriteId].oam.priority = 1;
+            gTasks[taskId].tMonSpriteId(i) = spriteId;
+        } else {
+            gTasks[taskId].tMonSpriteId(i) = 0xFF;
+        }
+    }
+
+    BlendPalettes(0xFFFF0000, 0xC, RGB(16, 29, 24));
+
+    ConvertIntToDecimalStringN(gStringVar1, gTasks[taskId].tCurrPageNo, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    StringExpandPlaceholders(gStringVar4, gText_HOFNumber);
+
+    if (gTasks[taskId].tCurrTeamNo <= 0)
+        HofPC_PutText(gStringVar4, gText_PickCancel, 0, 0, TRUE);
+    else
+        HofPC_PutText(gStringVar4, gText_PickNextCancel, 0, 0, TRUE);
+
+    gTasks[taskId].func = Task_HofPC_PrintMonInfo;
+}

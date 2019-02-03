@@ -23,4 +23,9 @@
 .definelabel Task_HofPC_PrintDataIsCorrupted, 0x080F30A4
 .definelabel CpuSet, 0x081E3B64
 .definelabel GetGameStat, 0x08054EC4
-.definelabel Task_HofPC_DrawSpritesPrintText, 0x080F2B6C
+// .definelabel Task_HofPC_DrawSpritesPrintText, 0x080F2B6C
+.definelabel BlendPalettes, 0x080714D4
+.definelabel ConvertIntToDecimalStringN, 0x08008E78
+.definelabel StringExpandPlaceholders, 0x08008FCC
+.definelabel HofPC_PutText, 0x0810F650
+.definelabel Task_HofPC_PrintMonInfo, 0x080F2D60

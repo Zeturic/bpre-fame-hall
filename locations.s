@@ -7,3 +7,8 @@
 .definelabel sHallOfFame_MonFullTeamPositions, 0x0840C268
 .definelabel gSprites, 0x0202063C
 .definelabel sHofFadingRelated, 0x0203AB34
+.definelabel gText_PickCancel, 0x08415D78
+.definelabel gText_PickNextCancel, 0x08415D60
+.definelabel gText_HOFNumber, 0x084160B4
+.definelabel gStringVar1, 0x02021CD0
+.definelabel gStringVar4, 0x02021D18

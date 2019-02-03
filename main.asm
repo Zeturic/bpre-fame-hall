@@ -55,4 +55,11 @@
     .pool
 .endarea
 
+.org 0x080F2B6C     // Task_HofPC_DrawSpritesPrintText
+.area 0xB8, 0xFE
+    ldr r3, =Task_HofPC_DrawSpritesPrintText |1
+    bx r3
+    .pool
+.endarea
+
 .close

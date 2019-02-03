@@ -7,6 +7,7 @@
 #define PARTY_SIZE 6
 
 #include "constants/pokemon.h"
+#include "constants/string-conversion-modes.h"
 
 #include "structs.h"
 #include "locations.h"
