@@ -6,3 +6,7 @@
 .definelabel Task_Hof_TrySaveData, 0x080F2220
 .definelabel memcpy, 0x081E5E78
 .definelabel sub_8112450, 0x08112450
+.definelabel InitHallOfFameScreen, 0x080F1DDC
+.definelabel CreateTask, 0x0807741C
+.definelabel Task_Hof_InitMonData, 0x080F1F74
+.definelabel AllocZeroed, 0x08002BB0

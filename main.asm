@@ -20,4 +20,11 @@
     .pool
 .endarea
 
+.org 0x080F1EFC
+.area 0x38, 0xFE
+    ldr r3, =CB2_DoHallOfFameScreen |1
+    bx r3
+    .pool
+.endarea
+
 .close

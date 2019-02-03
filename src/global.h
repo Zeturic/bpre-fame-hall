@@ -11,3 +11,10 @@
 #include "structs.h"
 #include "locations.h"
 #include "functions.h"
+
+#define tDontSaveData       data[0]
+#define tDisplayedMonId     data[1]
+#define tMonNumber          data[2]
+#define tFrameCount         data[3]
+#define tPlayerSpriteID     data[4]
+#define tMonSpriteId(i)     data[i + 5]

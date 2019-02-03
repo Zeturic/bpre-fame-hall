@@ -11,3 +11,10 @@ u16 AddTextPrinterParameterized2(u8 windowId, u8 fontId, const u8 *str, u8 speed
 void CopyWindowToVram(u8 windowId, u8 mode);
 void Task_Hof_TrySaveData(u8 taskId);
 void sub_8112450(void);
+void Task_Hof_InitMonData(u8 taskId);
+void *AllocZeroed(u32 size);
+bool8 InitHallOfFameScreen(void);
+u8 CreateTask(void (*func)(u8 taskId), u8 priority);
+
+void short_call Task_Hof_InitTeamSaveData(u8 taskId);
+void short_call CB2_DoHallOfFameScreen(void);

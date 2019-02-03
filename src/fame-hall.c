@@ -33,3 +33,11 @@ void Task_Hof_InitTeamSaveData(u8 taskId) {
     CopyWindowToVram(0, 3);
     gTasks[taskId].func = Task_Hof_TrySaveData;
 }
+
+void CB2_DoHallOfFameScreen(void) {
+    if (!InitHallOfFameScreen()) {
+        u8 taskId = CreateTask(Task_Hof_InitMonData, 0);
+        gTasks[taskId].tDontSaveData = FALSE;
+        sHofMonPtr = AllocZeroed(sizeof(*sHofMonPtr));
+    }
+}
