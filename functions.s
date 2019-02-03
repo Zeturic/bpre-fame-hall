@@ -15,5 +15,7 @@
 .definelabel DeleteWindow, 0x080F6F54
 // .definelabel Task_Hof_PrintMonInfoAfterAnimating, 0x080F23A0
 .definelabel HallOfFame_PrintMonInfo, 0x080F3194
-.definelabel Task_Hof_TryDisplayAnotherMon, 0x080F2424
+// .definelabel Task_Hof_TryDisplayAnotherMon, 0x080F2424
 .definelabel PlayCry1, 0x08071DF0
+.definelabel Task_Hof_PaletteFadeAndPrintWelcomeText, 0x080F2514
+.definelabel BeginNormalPaletteFade, 0x08070588

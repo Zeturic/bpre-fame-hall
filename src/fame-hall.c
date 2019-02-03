@@ -82,6 +82,26 @@ void Task_Hof_PrintMonInfoAfterAnimating(u8 taskId) {
     }
 }
 
+void Task_Hof_TryDisplayAnotherMon(u8 taskId) {
+    u16 currPokeID = gTasks[taskId].tDisplayedMonId;
+    struct HallofFameMon *currMon = &sHofMonPtr->mon[currPokeID];
+
+    if (gTasks[taskId].tFrameCount != 0) {
+        gTasks[taskId].tFrameCount--;
+    } else {
+        sHofFadingRelated |= (0x10000 << gSprites[gTasks[taskId].tMonSpriteId(currPokeID)].oam.paletteNum);
+        if (gTasks[taskId].tDisplayedMonId <= 4 && currMon[1].species != SPECIES_NONE)  // there is another pokemon to display
+        {
+            gTasks[taskId].tDisplayedMonId++;
+            BeginNormalPaletteFade(sHofFadingRelated, 0, 12, 12, RGB(16, 29, 24));
+            gSprites[gTasks[taskId].tMonSpriteId(currPokeID)].oam.priority = 1;
+            gTasks[taskId].func = Task_Hof_DisplayMon;
+        } else {
+            gTasks[taskId].func = Task_Hof_PaletteFadeAndPrintWelcomeText;
+        }
+    }
+}
+
 void CB2_DoHallOfFameScreen(void) {
     if (!InitHallOfFameScreen()) {
         u8 taskId = CreateTask(Task_Hof_InitMonData, 0);

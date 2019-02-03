@@ -18,11 +18,13 @@ u8 CreateTask(void (*func)(u8 taskId), u8 priority);
 void SpriteCB_GetOnScreenAndAnimate(struct Sprite *sprite);
 u16 CreatePicSprite2(u16 species, u32 otId, u32 personality, u8 flags, s16 x, s16 y, u8 paletteSlot, u16 paletteTag);
 void DeleteWindow(u8 windowId, bool8 copyToVram);
-void Task_Hof_TryDisplayAnotherMon(u8 taskId);
 void PlayCry1(u16 species, s8 pan);
 void HallOfFame_PrintMonInfo(struct HallofFameMon* currMon, u8 unused1, u8 unused2);
+void Task_Hof_PaletteFadeAndPrintWelcomeText(u8 taskId);
+bool8 BeginNormalPaletteFade(u32, s8, u8, u8, u16);
 
 void short_call Task_Hof_InitTeamSaveData(u8 taskId);
 void short_call Task_Hof_DisplayMon(u8 taskId);
 void short_call Task_Hof_PrintMonInfoAfterAnimating(u8 taskId);
+void short_call Task_Hof_TryDisplayAnotherMon(u8 taskId);
 void short_call CB2_DoHallOfFameScreen(void);

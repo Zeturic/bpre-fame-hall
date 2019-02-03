@@ -34,6 +34,13 @@
     .pool
 .endarea
 
+.org 0x080F2424     // Task_Hof_TryDisplayAnotherMon
+.area 0x3C, 0xFE
+    ldr r3, =Task_Hof_TryDisplayAnotherMon |1
+    bx r3
+    .pool
+.endarea
+
 .org 0x080F1EFC     // CB2_DoHallOfFameScreen
 .area 0x38, 0xFE
     ldr r3, =CB2_DoHallOfFameScreen |1

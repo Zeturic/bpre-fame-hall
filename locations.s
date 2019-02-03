@@ -6,3 +6,4 @@
 .definelabel sHallOfFame_MonHalfTeamPositions, 0x0840C298
 .definelabel sHallOfFame_MonFullTeamPositions, 0x0840C268
 .definelabel gSprites, 0x0202063C
+.definelabel sHofFadingRelated, 0x0203AB34

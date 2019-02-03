@@ -22,3 +22,5 @@
 #define tDestinationX  data[1]
 #define tDestinationY  data[2]
 #define tSpecies       data[7]
+
+#define RGB(r, g, b) ((r) | ((g) << 5) | ((b) << 10))
