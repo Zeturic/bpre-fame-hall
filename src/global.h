@@ -23,4 +23,16 @@
 #define tDestinationY  data[2]
 #define tSpecies       data[7]
 
+#define tCurrTeamNo     data[0]
+#define tCurrPageNo     data[1]
+#define tCurrMonId      data[2]
+#define tMonNo          data[4]
+// #define tMonSpriteId(i) data[i + 5]
+
 #define RGB(r, g, b) ((r) | ((g) << 5) | ((b) << 10))
+
+#define CpuCopy16(src, dest, size) CPU_COPY(src, dest, size, 16)
+#define CPU_COPY(src, dest, size, bit) CpuSet(src, dest, CPU_SET_##bit##BIT | ((size)/(bit/8) & 0x1FFFFF))
+#define CPU_SET_16BIT     0x00000000
+
+#define GAME_STAT_ENTERED_HOF               10

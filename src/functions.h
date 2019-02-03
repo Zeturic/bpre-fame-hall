@@ -22,9 +22,15 @@ void PlayCry1(u16 species, s8 pan);
 void HallOfFame_PrintMonInfo(struct HallofFameMon* currMon, u8 unused1, u8 unused2);
 void Task_Hof_PaletteFadeAndPrintWelcomeText(u8 taskId);
 bool8 BeginNormalPaletteFade(u32, s8, u8, u8, u16);
+void Task_HofPC_PrintDataIsCorrupted(u8 taskId);
+void Task_HofPC_DrawSpritesPrintText(u8 taskId);
+void CpuSet(const void *src, void *dest, u32 control);
+u32 GetGameStat(u8 index);
+u8 HofPC_CreateWindow(u8 bg, u8 xPos, u8 yPos, u8 palette, u16 baseTile);
 
 void short_call Task_Hof_InitTeamSaveData(u8 taskId);
 void short_call Task_Hof_DisplayMon(u8 taskId);
 void short_call Task_Hof_PrintMonInfoAfterAnimating(u8 taskId);
 void short_call Task_Hof_TryDisplayAnotherMon(u8 taskId);
+void short_call Task_HofPC_CopySaveData(u8 taskId);
 void short_call CB2_DoHallOfFameScreen(void);

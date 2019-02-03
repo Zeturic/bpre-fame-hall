@@ -102,6 +102,32 @@ void Task_Hof_TryDisplayAnotherMon(u8 taskId) {
     }
 }
 
+void Task_HofPC_CopySaveData(u8 taskId) {
+    HofPC_CreateWindow(0, 0x1E, 0, 0xC, 0x226);
+    if (Save_LoadGameData(3) != 1) {
+        gTasks[taskId].func = Task_HofPC_PrintDataIsCorrupted;
+    } else {
+        u16 i;
+        struct HallofFameTeam *savedTeams;
+
+        CpuCopy16(gDecompressionBuffer, sHofMonPtr, 0x2000);
+        savedTeams = sHofMonPtr;
+        for (i = 0; i < HALL_OF_FAME_MAX_TEAMS; i++, savedTeams++) {
+            if (savedTeams->mon[0].species == SPECIES_NONE)
+                break;
+        }
+
+        if (i < HALL_OF_FAME_MAX_TEAMS)
+            gTasks[taskId].tCurrTeamNo = i - 1;
+        else
+            gTasks[taskId].tCurrTeamNo = HALL_OF_FAME_MAX_TEAMS - 1;
+
+        gTasks[taskId].tCurrPageNo = GetGameStat(GAME_STAT_ENTERED_HOF);
+
+        gTasks[taskId].func = Task_HofPC_DrawSpritesPrintText;
+    }
+}
+
 void CB2_DoHallOfFameScreen(void) {
     if (!InitHallOfFameScreen()) {
         u8 taskId = CreateTask(Task_Hof_InitMonData, 0);
