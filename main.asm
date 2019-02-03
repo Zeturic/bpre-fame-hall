@@ -13,6 +13,13 @@
     .importobj "obj/relocatable.o"
 .endarea
 
+.org 0x080F1EFC     // CB2_DoHallOfFameScreen
+.area 0x38, 0xFE
+    ldr r3, =CB2_DoHallOfFameScreen |1
+    bx r3
+    .pool
+.endarea
+
 .org 0x080F2114     // Task_Hof_InitTeamSaveData
 .area 0x2C, 0xFE
     ldr r3, =Task_Hof_InitTeamSaveData |1
@@ -44,13 +51,6 @@
 .org 0x080F2AA4     // Task_HofPC_CopySaveData
 .area 0x34, 0xFE
     ldr r3, =Task_HofPC_CopySaveData |1
-    bx r3
-    .pool
-.endarea
-
-.org 0x080F1EFC     // CB2_DoHallOfFameScreen
-.area 0x38, 0xFE
-    ldr r3, =CB2_DoHallOfFameScreen |1
     bx r3
     .pool
 .endarea

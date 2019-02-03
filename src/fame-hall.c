@@ -1,5 +1,13 @@
 #include "global.h"
 
+void CB2_DoHallOfFameScreen(void) {
+    if (!InitHallOfFameScreen()) {
+        u8 taskId = CreateTask(Task_Hof_InitMonData, 0);
+        gTasks[taskId].tDontSaveData = FALSE;
+        sHofMonPtr = AllocZeroed(sizeof(*sHofMonPtr));
+    }
+}
+
 void Task_Hof_InitTeamSaveData(u8 taskId) {
     u16 i;
     struct HallofFameTeam *lastSavedTeam = (struct HallofFameTeam *)(gDecompressionBuffer);
@@ -125,13 +133,5 @@ void Task_HofPC_CopySaveData(u8 taskId) {
         gTasks[taskId].tCurrPageNo = GetGameStat(GAME_STAT_ENTERED_HOF);
 
         gTasks[taskId].func = Task_HofPC_DrawSpritesPrintText;
-    }
-}
-
-void CB2_DoHallOfFameScreen(void) {
-    if (!InitHallOfFameScreen()) {
-        u8 taskId = CreateTask(Task_Hof_InitMonData, 0);
-        gTasks[taskId].tDontSaveData = FALSE;
-        sHofMonPtr = AllocZeroed(sizeof(*sHofMonPtr));
     }
 }
