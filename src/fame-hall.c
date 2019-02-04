@@ -101,7 +101,7 @@ void Task_Hof_TryDisplayAnotherMon(u8 taskId) {
         if (gTasks[taskId].tDisplayedMonId <= 4 && currMon[1].species != SPECIES_NONE)  // there is another pokemon to display
         {
             gTasks[taskId].tDisplayedMonId++;
-            BeginNormalPaletteFade(sHofFadingRelated, 0, 12, 12, RGB(16, 29, 24));
+            BeginNormalPaletteFade(sHofFadingRelated, 0, 12, 12, RGB(22, 24, 29));
             gSprites[gTasks[taskId].tMonSpriteId(currPokeID)].oam.priority = 1;
             gTasks[taskId].func = Task_Hof_DisplayMon;
         } else {
@@ -180,9 +180,9 @@ void Task_HofPC_DrawSpritesPrintText(u8 taskId) {
         }
     }
 
-    BlendPalettes(0xFFFF0000, 0xC, RGB(16, 29, 24));
+    BlendPalettes(0xFFFF0000, 0xC, RGB(22, 24, 29));
 
-    ConvertIntToDecimalStringN(gStringVar1, gTasks[taskId].tCurrPageNo, STR_CONV_MODE_RIGHT_ALIGN, 3);
+    ConvertIntToDecimalStringN(gStringVar1, gTasks[taskId].tCurrPageNo, STR_CONV_MODE_LEFT_ALIGN, 3);
     StringExpandPlaceholders(gStringVar4, gText_HOFNumber);
 
     if (gTasks[taskId].tCurrTeamNo <= 0)
