@@ -69,4 +69,11 @@
     .pool
 .endarea
 
+.org 0x080F1F74       // Task_Hof_InitMonData
+.area 0xDC, 0xFE
+    ldr r3, =Task_Hof_InitMonData |1
+    bx r3
+    .pool
+.endarea
+
 .close

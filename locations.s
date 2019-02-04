@@ -12,3 +12,4 @@
 .definelabel gText_HOFNumber, 0x084160B4
 .definelabel gStringVar1, 0x02021CD0
 .definelabel gStringVar4, 0x02021D18
+.definelabel gPlayerParty, 0x02024284

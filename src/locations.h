@@ -23,3 +23,5 @@ extern u32 sHofFadingRelated;
 
 extern u8 gStringVar1[];
 extern u8 gStringVar4[];
+
+extern struct Pokemon gPlayerParty[PARTY_SIZE];

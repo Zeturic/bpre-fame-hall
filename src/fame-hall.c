@@ -222,3 +222,43 @@ void Task_HofPC_PrintMonInfo(u8 taskId) {
 
     gTasks[taskId].func = Task_HofPC_HandleInput;
 }
+
+void Task_Hof_InitMonData(u8 taskId) {
+    u16 i, j;
+
+    gTasks[taskId].tMonNumber = 0;  // valid pokes
+
+    for (i = 0; i < PARTY_SIZE; i++) {
+        u8 nick[POKEMON_NAME_LENGTH + 2];
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES)) {
+            sHofMonPtr->mon[i].species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES2);
+            sHofMonPtr->mon[i].tid = GetMonData(&gPlayerParty[i], MON_DATA_OT_ID);
+            sHofMonPtr->mon[i].personality = GetMonData(&gPlayerParty[i], MON_DATA_PERSONALITY);
+            sHofMonPtr->mon[i].lvl = GetMonData(&gPlayerParty[i], MON_DATA_LEVEL);
+            GetMonData(&gPlayerParty[i], MON_DATA_NICKNAME, nick);
+            for (j = 0; j < POKEMON_NAME_LENGTH; j++) {
+                sHofMonPtr->mon[i].nick[j] = nick[j];
+            }
+            gTasks[taskId].tMonNumber++;
+        } else {
+            sHofMonPtr->mon[i].species = 0;
+            sHofMonPtr->mon[i].tid = 0;
+            sHofMonPtr->mon[i].personality = 0;
+            sHofMonPtr->mon[i].lvl = 0;
+            sHofMonPtr->mon[i].nick[0] = EOS;
+        }
+    }
+
+    sHofFadingRelated = 0;
+    gTasks[taskId].tDisplayedMonId = 0;
+    gTasks[taskId].tPlayerSpriteID = 0xFF;
+
+    for (i = 0; i < PARTY_SIZE; i++) {
+        gTasks[taskId].tMonSpriteId(i) = 0xFF;
+    }
+
+    if (gTasks[taskId].tDontSaveData)
+        gTasks[taskId].func = Task_Hof_SetMonDisplayTask;
+    else
+        gTasks[taskId].func = Task_Hof_InitTeamSaveData;
+}

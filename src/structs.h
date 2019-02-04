@@ -52,6 +52,10 @@ struct packed Sprite {
     u8 filler_3E[0x6];
 };
 
+struct packed Pokemon {
+    u8 filler_0[100];
+};
+
 struct TextPrinterTemplate;
 
 // _Static_assert(sizeof(struct Task) == 0x28, "");

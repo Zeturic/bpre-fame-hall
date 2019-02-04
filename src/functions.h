@@ -11,7 +11,6 @@ u16 AddTextPrinterParameterized2(u8 windowId, u8 fontId, const u8 *str, u8 speed
 void CopyWindowToVram(u8 windowId, u8 mode);
 void Task_Hof_TrySaveData(u8 taskId);
 void sub_8112450(void);
-void Task_Hof_InitMonData(u8 taskId);
 void *AllocZeroed(u32 size);
 bool8 InitHallOfFameScreen(void);
 u8 CreateTask(void (*func)(u8 taskId), u8 priority);
@@ -33,6 +32,8 @@ void HofPC_PutText(const u8 *string, const u8 *string2, u8 a3, u8 a4, bool8 copy
 void Task_HofPC_HandleInput(u8 taskId);
 void BlendPalettesUnfaded(u32, u8, u16);
 void StopCryAndClearCrySongs(void);
+void Task_Hof_SetMonDisplayTask(u8 taskId);
+u32 GetMonData();
 
 void short_call CB2_DoHallOfFameScreen(void);
 void short_call Task_Hof_InitTeamSaveData(u8 taskId);
@@ -42,3 +43,4 @@ void short_call Task_Hof_TryDisplayAnotherMon(u8 taskId);
 void short_call Task_HofPC_CopySaveData(u8 taskId);
 void short_call Task_HofPC_DrawSpritesPrintText(u8 taskId);
 void short_call Task_HofPC_PrintMonInfo(u8 taskId);
+void short_call Task_Hof_InitMonData(u8 taskId);

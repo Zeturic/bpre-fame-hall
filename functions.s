@@ -8,7 +8,7 @@
 .definelabel sub_8112450, 0x08112450
 .definelabel InitHallOfFameScreen, 0x080F1DDC
 .definelabel CreateTask, 0x0807741C
-.definelabel Task_Hof_InitMonData, 0x080F1F74
+// .definelabel Task_Hof_InitMonData, 0x080F1F74
 .definelabel AllocZeroed, 0x08002BB0
 .definelabel CreatePicSprite2, 0x0810C1CC
 .definelabel SpriteCB_GetOnScreenAndAnimate, 0x080F3870
@@ -32,3 +32,5 @@
 .definelabel BlendPalettesUnfaded, 0x08071510
 .definelabel StopCryAndClearCrySongs, 0x080721C4
 .definelabel Task_HofPC_HandleInput, 0x080F2E8C
+.definelabel GetMonData, 0x0803FBE8
+.definelabel Task_Hof_SetMonDisplayTask, 0x080F2294
