@@ -6,6 +6,9 @@ extern const u8 gText_SavingDontTurnOffPower[];
 extern const u8 gText_HOFNumber[];
 extern const u8 gText_PickCancel[];
 extern const u8 gText_PickNextCancel[];
+extern const u8 gText_IDNumber[];
+extern const u8 gText_Level[];
+extern const u8 gText_Number[];
 
 extern u8 gDecompressionBuffer[];
 extern bool8 gHasHallOfFameRecords;
@@ -25,3 +28,7 @@ extern u8 gStringVar1[];
 extern u8 gStringVar4[];
 
 extern struct Pokemon gPlayerParty[PARTY_SIZE];
+
+extern const u8 sUnknown_0840C23C[];
+
+extern const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1];

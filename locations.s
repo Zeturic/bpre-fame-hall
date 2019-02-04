@@ -13,3 +13,8 @@
 .definelabel gStringVar1, 0x02021CD0
 .definelabel gStringVar4, 0x02021D18
 .definelabel gPlayerParty, 0x02024284
+.definelabel gText_Number, 0x084160EC
+.definelabel gText_Level, 0x084160F4
+.definelabel gText_IDNumber, 0x08416104
+.definelabel gSpeciesNames, 0x08245EE0
+.definelabel sUnknown_0840C23C, 0x0840C23C

@@ -14,7 +14,7 @@
 .definelabel SpriteCB_GetOnScreenAndAnimate, 0x080F3870
 .definelabel DeleteWindow, 0x080F6F54
 // .definelabel Task_Hof_PrintMonInfoAfterAnimating, 0x080F23A0
-.definelabel HallOfFame_PrintMonInfo, 0x080F3194
+// .definelabel HallOfFame_PrintMonInfo, 0x080F3194
 // .definelabel Task_Hof_TryDisplayAnotherMon, 0x080F2424
 .definelabel PlayCry1, 0x08071DF0
 .definelabel Task_Hof_PaletteFadeAndPrintWelcomeText, 0x080F2514
@@ -34,3 +34,25 @@
 .definelabel Task_HofPC_HandleInput, 0x080F2E8C
 .definelabel GetMonData, 0x0803FBE8
 .definelabel Task_Hof_SetMonDisplayTask, 0x080F2294
+.definelabel FillWindowPixelBuffer, 0x0800445C
+.definelabel PutWindowTilemap, 0x08003FA0
+.definelabel AddTextPrinterParameterized3, 0x0812E51C
+.definelabel GetFontAttribute, 0x080F79D8
+.definelabel GetStringWidth, 0x08005ED4
+.definelabel StringCopy, 0x08008D84
+.definelabel GetGenderFromSpeciesAndPersonality, 0x0803F78C
+.definelabel SpeciesToPokedexNum, 0x08043F90
+
+.definelabel __divsi3, 0x081E4018
+.definelabel __aeabi_idiv, __divsi3
+.definelabel div, __divsi3
+
+.definelabel __modsi3, 0x081E40F4
+.definelabel mod, __modsi3
+
+.definelabel __udivsi3, 0x081E460C
+.definelabel __aeabi_uidiv, __udivsi3
+.definelabel udiv, __udivsi3
+
+.definelabel __umodsi3, 0x081E4684
+.definelabel umod, __umodsi3

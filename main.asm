@@ -76,4 +76,11 @@
     .pool
 .endarea
 
+.org 0x080F3194       // HallOfFame_PrintMonInfo
+.area 0x80, 0xFE
+    ldr r3, =HallOfFame_PrintMonInfo |1
+    bx r3
+    .pool
+.endarea
+
 .close

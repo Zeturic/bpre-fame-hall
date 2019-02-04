@@ -9,6 +9,8 @@
 #include "constants/pokemon.h"
 #include "constants/string-conversion-modes.h"
 #include "constants/pokemon-data.h"
+#include "constants/characters.h"
+#include "constants/gender.h"
 
 #include "structs.h"
 #include "locations.h"
@@ -38,5 +40,3 @@
 #define CPU_SET_16BIT     0x00000000
 
 #define GAME_STAT_ENTERED_HOF               10
-
-#define EOS                 0xFF // end of string

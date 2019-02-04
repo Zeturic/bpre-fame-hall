@@ -262,3 +262,75 @@ void Task_Hof_InitMonData(u8 taskId) {
     else
         gTasks[taskId].func = Task_Hof_InitTeamSaveData;
 }
+
+void HallOfFame_PrintMonInfo(struct HallofFameMon *currMon, u8 unused1, u8 unused2) {
+    u8 text[30];
+    u8 *stringPtr;
+    s32 dexNumber;
+    s32 width;
+
+    FillWindowPixelBuffer(0, 0);
+    PutWindowTilemap(0);
+
+    // dex number
+    if (currMon->species != SPECIES_EGG) {
+        stringPtr = StringCopy(text, gText_Number);
+        dexNumber = SpeciesToPokedexNum(currMon->species);
+        if (dexNumber != 0xFFFF) {
+            stringPtr[0] = (dexNumber / 100) + CHAR_0;
+            stringPtr++;
+            dexNumber = mod(dexNumber, 100);
+            stringPtr[0] = (dexNumber / 10) + CHAR_0;
+            stringPtr++;
+            stringPtr[0] = mod(dexNumber, 10) + CHAR_0;
+            stringPtr++;
+        } else {
+            *(stringPtr)++ = CHAR_QUESTION_MARK;
+            *(stringPtr)++ = CHAR_QUESTION_MARK;
+            *(stringPtr)++ = CHAR_QUESTION_MARK;
+        }
+        stringPtr[0] = EOS;
+        AddTextPrinterParameterized3(0, 2, 0x10, 1, sUnknown_0840C23C, 0, text);
+    }
+
+    // nick, species names, gender and level
+    memcpy(text, currMon->nick, POKEMON_NAME_LENGTH);
+    text[POKEMON_NAME_LENGTH] = EOS;
+    if (currMon->species == SPECIES_EGG) {
+        width = 128 - GetStringWidth(2, text, GetFontAttribute(2, 2)) / 2;
+        AddTextPrinterParameterized3(0, 2, width, 1, sUnknown_0840C23C, 0, text);
+        CopyWindowToVram(0, 3);
+    } else {
+        width = -128 - GetStringWidth(2, text, GetFontAttribute(2, 2));
+        AddTextPrinterParameterized3(0, 2, width, 1, sUnknown_0840C23C, 0, text);
+
+        text[0] = CHAR_SLASH;
+        stringPtr = StringCopy(text + 1, gSpeciesNames[currMon->species]);
+
+        if (currMon->species != SPECIES_NIDORAN_M && currMon->species != SPECIES_NIDORAN_F) {
+            switch (GetGenderFromSpeciesAndPersonality(currMon->species, currMon->personality)) {
+                case MON_MALE:
+                    stringPtr[0] = CHAR_MALE;
+                    stringPtr++;
+                    break;
+                case MON_FEMALE:
+                    stringPtr[0] = CHAR_FEMALE;
+                    stringPtr++;
+                    break;
+            }
+        }
+
+        stringPtr[0] = EOS;
+        AddTextPrinterParameterized3(0, 2, 0x80, 1, sUnknown_0840C23C, 0, text);
+
+        stringPtr = StringCopy(text, gText_Level);
+        ConvertIntToDecimalStringN(stringPtr, currMon->lvl, STR_CONV_MODE_LEFT_ALIGN, 3);
+        AddTextPrinterParameterized3(0, 2, 0x20, 0x11, sUnknown_0840C23C, 0, text);
+
+        stringPtr = StringCopy(text, gText_IDNumber);
+        ConvertIntToDecimalStringN(stringPtr, (u16)(currMon->tid), STR_CONV_MODE_LEADING_ZEROS, 5);
+        AddTextPrinterParameterized3(0, 2, 0x60, 0x11, sUnknown_0840C23C, 0, text);
+
+        CopyWindowToVram(0, 3);
+    }
+}
