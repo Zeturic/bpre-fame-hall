@@ -31,4 +31,7 @@ extern struct Pokemon gPlayerParty[PARTY_SIZE];
 
 extern const u8 sUnknown_0840C23C[];
 
-extern const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1];
+// extern const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1];
+typedef const u8 gSpeciesNames_t[][POKEMON_NAME_LENGTH + 1];
+extern gSpeciesNames_t * const gSpeciesNamesPtr;
+#define gSpeciesNames (*gSpeciesNamesPtr)
