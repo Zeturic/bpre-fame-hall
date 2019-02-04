@@ -2,12 +2,21 @@
 #include "types.h"
 
 #define packed __attribute__((packed))
+#define aligned(x) __attribute__((aligned(x)))
 
-struct packed HallofFameMon {
+// struct packed HallofFameMon {
+//     u32 tid;
+//     u32 personality;
+//     u16 species : 9;
+//     u16 lvl : 7;
+//     u8 nick[POKEMON_NAME_LENGTH];
+// };
+
+struct packed aligned(4) HallofFameMon {
     u32 tid;
     u32 personality;
-    u16 species : 9;
-    u16 lvl : 7;
+    u16 species;
+    u8 lvl;
     u8 nick[POKEMON_NAME_LENGTH];
 };
 

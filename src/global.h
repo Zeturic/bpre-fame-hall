@@ -1,7 +1,8 @@
 #pragma once
 #include "types.h"
 
-#define HALL_OF_FAME_MAX_TEAMS 50
+// #define HALL_OF_FAME_MAX_TEAMS 50
+#define HALL_OF_FAME_MAX_TEAMS 40
 
 #define POKEMON_NAME_LENGTH 10
 #define PARTY_SIZE 6
@@ -40,3 +41,5 @@
 #define CPU_SET_16BIT     0x00000000
 
 #define GAME_STAT_ENTERED_HOF               10
+
+_Static_assert(sizeof(struct HallofFameTeam) * HALL_OF_FAME_MAX_TEAMS <= 0x1770, "");
