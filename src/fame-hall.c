@@ -192,3 +192,33 @@ void Task_HofPC_DrawSpritesPrintText(u8 taskId) {
 
     gTasks[taskId].func = Task_HofPC_PrintMonInfo;
 }
+
+void Task_HofPC_PrintMonInfo(u8 taskId) {
+    struct HallofFameTeam *savedTeams = sHofMonPtr;
+    struct HallofFameMon *currMon;
+    u16 i;
+    u16 currMonID;
+
+    for (i = 0; i < gTasks[taskId].tCurrTeamNo; i++)
+        savedTeams++;
+
+    for (i = 0; i < PARTY_SIZE; i++) {
+        u16 spriteId = gTasks[taskId].tMonSpriteId(i);
+        if (spriteId != 0xFF)
+            gSprites[spriteId].oam.priority = 1;
+    }
+
+    currMonID = gTasks[taskId].tMonSpriteId(gTasks[taskId].tCurrMonId);
+    gSprites[currMonID].oam.priority = 0;
+    sHofFadingRelated = (0x10000 << gSprites[currMonID].oam.paletteNum) ^ 0xFFFF0000;
+    BlendPalettesUnfaded(sHofFadingRelated, 0xC, RGB(22, 24, 29));
+
+    currMon = &savedTeams->mon[gTasks[taskId].tCurrMonId];
+    if (currMon->species != SPECIES_EGG) {
+        StopCryAndClearCrySongs();
+        PlayCry1(currMon->species, 0);
+    }
+    HallOfFame_PrintMonInfo(currMon, 0, 14);
+
+    gTasks[taskId].func = Task_HofPC_HandleInput;
+}

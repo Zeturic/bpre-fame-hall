@@ -28,4 +28,7 @@
 .definelabel ConvertIntToDecimalStringN, 0x08008E78
 .definelabel StringExpandPlaceholders, 0x08008FCC
 .definelabel HofPC_PutText, 0x0810F650
-.definelabel Task_HofPC_PrintMonInfo, 0x080F2D60
+// .definelabel Task_HofPC_PrintMonInfo, 0x080F2D60
+.definelabel BlendPalettesUnfaded, 0x08071510
+.definelabel StopCryAndClearCrySongs, 0x080721C4
+.definelabel Task_HofPC_HandleInput, 0x080F2E8C

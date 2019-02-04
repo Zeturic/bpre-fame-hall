@@ -62,4 +62,11 @@
     .pool
 .endarea
 
+.org 0x080F2D60       // Task_HofPC_PrintMonInfo
+.area 0x108, 0xFE
+    ldr r3, =Task_HofPC_PrintMonInfo |1
+    bx r3
+    .pool
+.endarea
+
 .close
