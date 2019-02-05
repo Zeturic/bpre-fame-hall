@@ -263,7 +263,7 @@ void Task_Hof_InitMonData(u8 taskId) {
         gTasks[taskId].func = Task_Hof_InitTeamSaveData;
 }
 
-void HallOfFame_PrintMonInfo(struct HallofFameMon *currMon, u8 unused1, u8 unused2) {
+void HallOfFame_PrintMonInfo(struct HallofFameMon *currMon, unused u8 a1, unused u8 a2) {
     u8 text[30];
     u8 *stringPtr;
     s32 dexNumber;

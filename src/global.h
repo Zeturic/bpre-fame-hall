@@ -42,4 +42,6 @@
 
 #define GAME_STAT_ENTERED_HOF               10
 
+#define unused __attribute__((unused))
+
 _Static_assert(sizeof(struct HallofFameTeam) * HALL_OF_FAME_MAX_TEAMS <= 0x1770, "");
