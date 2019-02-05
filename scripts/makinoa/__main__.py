@@ -195,14 +195,18 @@ def find_needed_words(needed_words, start_at):
 
             if val == b"\xff\xff\xff\xff":
                 if start is None:
-                    if record == 0:
-                        record = 1
+                    assert record == 0
+                    record = 1
                     
                     start = rom.tell() - 4
                 else:
                     record += 1
             else:
-                start = None
+                record, start = 0, None
+
+        # sanity check
+        rom.seek(start)
+        assert rom.read(needed_words * 4) == b"\xff\xff\xff\xff" * needed_words
 
     return start ^ offset_mask
 
