@@ -50,11 +50,15 @@ if optimization_level not in ("-O", "-O0", "-O1", "-O2", "-O3", "-Ofast", "-Og",
     print(f"Error :: {optimization_level} is not an understood optimization level.")
     sys.exit(1)
 
-# clean build dirs
-shutil.rmtree(build, ignore_errors=True)
-shutil.rmtree(obj, ignore_errors=True)
-os.mkdir(build)
-os.mkdir(obj)
+def swallow(fn, default=None):
+    try:
+        return fn()
+    except Exception:
+        return default
+
+# create build dirs if they don't exist
+swallow(lambda : os.mkdir(build))
+swallow(lambda : os.mkdir(obj))
 
 DEVKITARM = os.environ.get("DEVKITARM", "")
 
