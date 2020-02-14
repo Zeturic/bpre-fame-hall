@@ -54,7 +54,7 @@ gHasHallOfFameRecords                       = 0x0203AB44;
 
 gTasks                                      = 0x03005090;
 
-gSpeciesNames                               = 0x08245EE0;
+gSpeciesNamesPtr                            = 0x08000144;
 sTextColors                                 = 0x0840C23C;
 sHallOfFame_MonFullTeamPositions            = 0x0840C268;
 sHallOfFame_MonHalfTeamPositions            = 0x0840C298;
