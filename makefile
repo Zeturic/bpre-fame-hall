@@ -39,7 +39,7 @@ FREESIA_FLAGS = --rom rom.gba --start-at $(START_AT)
 
 # ------------------------------------------------------------------------------
 
-.PHONY: all spotless clean clean-tools repoint-cursor-options md5
+.PHONY: all spotless clean clean-tools md5
 
 all: test.gba
 
