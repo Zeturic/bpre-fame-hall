@@ -14,7 +14,7 @@
 // CB2_DoHallOfFameScreen
 
 .org 0x080F1EFC
-.area 0x36, 0xFE
+.area 0x080F1F32 - 0x080F1EFC, 0xFE
     ldr r3, =CB2_DoHallOfFameScreen |1
     bx r3
     .pool
@@ -24,31 +24,31 @@
 // Task_Hof_InitTeamSaveData
 
 .org 0x080F2114
-.area 0x2C, 0xFE
+.area 0x080F2140 - 0x080F2114, 0xFE
     ldr r3, =Task_Hof_InitTeamSaveData |1
     bx r3
     .pool
 .endarea
 
-.org 0x080F2148 :: .fill 0xBE, 0xFE
+.org 0x080F2148 :: .fill 0x080F2206 - 0x080F2148, 0xFE
 
 // -----------------------------------------------------------------------------
 // Task_Hof_DisplayMon
 
 .org 0x080F22B0
-.area 0x32, 0xFE
+.area 0x080F22E2 - 0x080F22B0, 0xFE
     ldr r3, =Task_Hof_DisplayMon |1
     bx r3
     .pool
 .endarea
 
-.org 0x080F22F0 :: .fill 0x98, 0xFE
+.org 0x080F22F0 :: .fill 0x080F2388 - 0x080F22F0, 0xFE
 
 // -----------------------------------------------------------------------------
 // Task_Hof_PlayMonCryAndPrintInfo
 
 .org 0x080F23A0
-.area 0x6E, 0xFE
+.area 0x080F240E - 0x080F23A0, 0xFE
     ldr r3, =Task_Hof_PlayMonCryAndPrintInfo |1
     bx r3
     .pool
@@ -58,41 +58,41 @@
 // Task_Hof_TryDisplayAnotherMon
 
 .org 0x080F2424
-.area 0x3A, 0xFE
+.area 0x080F245E - 0x080F2424, 0xFE
     ldr r3, =Task_Hof_TryDisplayAnotherMon |1
     bx r3
     .pool
 .endarea
 
-.org 0x080F2468 :: .fill 0x78, 0xFE
-.org 0x080F24F4 :: .fill 0x1A, 0xFE
+.org 0x080F2468 :: .fill 0x080F24E0 - 0x080F2468, 0xFE
+.org 0x080F24F4 :: .fill 0x080F250E - 0x080F24F4, 0xFE
 
 // -----------------------------------------------------------------------------
 // Task_HofPC_CopySaveData
 
 .org 0x080F2AA4
-.area 0x34, 0xFE
+.area 0x080F2AD8 - 0x080F2AA4, 0xFE
     ldr r3, =Task_HofPC_CopySaveData |1
     bx r3
     .pool
 .endarea
 
-.org 0x080F2AE4 :: .fill 0x46, 0xFE
-.org 0x080F2B3C :: .fill 0x28, 0xFE
+.org 0x080F2AE4 :: .fill 0x080F2B2A - 0x080F2AE4, 0xFE
+.org 0x080F2B3C :: .fill 0x080F2B64 - 0x080F2B3C, 0xFE
 
 // -----------------------------------------------------------------------------
 // Task_HofPC_DrawSpritesPrintText
 
 .org 0x080F2B6C
-.area 0xB6, 0xFE
+.area 0x080F2C22 - 0x080F2B6C, 0xFE
     ldr r3, =Task_HofPC_DrawSpritesPrintText |1
     bx r3
     .pool
 .endarea
 
-.org 0x080F2C3C :: .fill 0x5E, 0xFE
-.org 0x080F2CA8 :: .fill 0x5E, 0xFE
-.org 0x080F2D24 :: .fill 0x2E, 0xFE
+.org 0x080F2C3C :: .fill 0x080F2C9A - 0x080F2C3C, 0xFE
+.org 0x080F2CA8 :: .fill 0x080F2D06 - 0x080F2CA8, 0xFE
+.org 0x080F2D24 :: .fill 0x080F2D52 - 0x080F2D24, 0xFE
 
 // -----------------------------------------------------------------------------
 // Task_HofPC_PrintMonInfo
