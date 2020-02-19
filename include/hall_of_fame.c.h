@@ -17,7 +17,7 @@
 //     u8 nick[10];
 // };
 
-struct PACKED ALIGNED(4) HallofFameMon
+struct HallofFameMon
 {
     u32 tid;
     u32 personality;
