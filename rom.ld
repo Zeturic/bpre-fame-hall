@@ -14,10 +14,10 @@ GetGameStat                                 = 0x08054EC4 |1;
 BeginNormalPaletteFade                      = 0x08070588 |1;
 BlendPalettes                               = 0x080714D4 |1;
 BlendPalettesUnfaded                        = 0x08071510 |1;
-PlayCry1                                    = 0x08071DF0 |1;
+PlayCry_Normal                              = 0x08071DF0 |1;
 StopCryAndClearCrySongs                     = 0x080721C4 |1;
 CreateTask                                  = 0x0807741C |1;
-Save_LoadGameData                           = 0x080DA4FC |1;
+LoadGameSave                                = 0x080DA4FC |1;
 InitHallOfFameScreen                        = 0x080F1DDC |1;
 Task_Hof_TrySaveData                        = 0x080F2220 |1;
 Task_Hof_StartDisplayingMons                = 0x080F2294 |1;
@@ -32,14 +32,13 @@ GetFontAttribute                            = 0x080F79D8 |1;
 CreateMonPicSprite_HandleDeoxys             = 0x0810C1CC |1;
 CreateTopBarWindowLoadPalette               = 0x0810F558 |1;
 TopBarWindowPrintTwoStrings                 = 0x0810F650 |1;
-sub_8112450                                 = 0x08112450 |1;
+SaveQuestLogData                            = 0x08112450 |1;
 AddTextPrinterParameterized3                = 0x0812E51C |1;
 CpuSet                                      = 0x081E3B64 |1;
 __udivsi3                                   = 0x081E460C |1;
 __umodsi3                                   = 0x081E4684 |1;
 memcpy                                      = 0x081E5E78 |1;
 memset                                      = 0x081E5ED8 |1;
-
 
 /* -------------------------------------------------------------------------- */
 

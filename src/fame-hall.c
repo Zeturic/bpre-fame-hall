@@ -36,14 +36,14 @@ void Task_Hof_InitTeamSaveData(u8 taskId)
     u16 i;
     struct HallofFameTeam* lastSavedTeam = (struct HallofFameTeam *)(gDecompressionBuffer);
 
-    sub_8112450();
+    SaveQuestLogData();
     if (!gHasHallOfFameRecords)
     {
         memset(gDecompressionBuffer, 0, 0x2000);
     }
     else
     {
-        if (Save_LoadGameData(SAVE_HALL_OF_FAME) != TRUE)
+        if (LoadGameSave(SAVE_HALL_OF_FAME) != TRUE)
             memset(gDecompressionBuffer, 0, 0x2000);
     }
 
@@ -115,7 +115,7 @@ void Task_Hof_PlayMonCryAndPrintInfo(u8 taskId)
     if (gSprites[gTasks[taskId].data[5 + currMonId]].data[0])
     {
         if (currMon->species != SPECIES_EGG)
-            PlayCry1(currMon->species, 0);
+            PlayCry_Normal(currMon->species, 0);
         HallOfFame_PrintMonInfo(currMon, 0, 14);
         gTasks[taskId].data[3] = 120;
         gTasks[taskId].func = Task_Hof_TryDisplayAnotherMon;
@@ -154,7 +154,7 @@ void Task_HofPC_CopySaveData(u8 taskId)
     struct HallofFameTeam* savedTeams;
 
     CreateTopBarWindowLoadPalette(0, 30, 0, 0x0C, 0x226);
-    if (Save_LoadGameData(SAVE_HALL_OF_FAME) != SAVE_STATUS_OK)
+    if (LoadGameSave(SAVE_HALL_OF_FAME) != SAVE_STATUS_OK)
     {
         gTasks[taskId].func = Task_HofPC_PrintDataIsCorrupted;
     }
@@ -269,7 +269,7 @@ void Task_HofPC_PrintMonInfo(u8 taskId)
     if (currMon->species != SPECIES_EGG)
     {
         StopCryAndClearCrySongs();
-        PlayCry1(currMon->species, 0);
+        PlayCry_Normal(currMon->species, 0);
     }
     HallOfFame_PrintMonInfo(currMon, 0, 14);
 
